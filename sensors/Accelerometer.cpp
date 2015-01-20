@@ -23,7 +23,7 @@
 #include <sys/select.h>
 #include <cutils/log.h>
 
-#include "AccelSensor.h"
+#include <AccelSensor.h>
 #include "sensors.h"
 
 #define FETCH_FULL_EVENT_BEFORE_RETURN	1

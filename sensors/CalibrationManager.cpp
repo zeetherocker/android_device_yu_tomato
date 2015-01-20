@@ -36,7 +36,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <utils/Log.h>
 #include <CalibrationModule.h>
-#include "CalibrationManager.h"
+#include <CalibrationManager.h>
 
 CalibrationManager* CalibrationManager::self = NULL;
 

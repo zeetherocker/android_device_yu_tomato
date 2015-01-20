@@ -24,7 +24,7 @@
 #include <cutils/log.h>
 
 #include "sensors.h"
-#include "LightSensor.h"
+#include <LightSensor.h>
 
 #define LIGHT_SYS_PATH      "/sys/devices/soc.0/78b6000.i2c/i2c-0/0-001e/"
 #define LIGHT_SENSOR_NAME   "PA12200001_light"

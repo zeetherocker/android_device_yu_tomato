@@ -23,7 +23,7 @@
 #include <sys/select.h>
 #include <cutils/log.h>
 
-#include "GyroSensor.h"
+#include <GyroSensor.h>
 #include "sensors.h"
 
 #define GYRO_INPUT_DEV_NAME 	"mpu6880"

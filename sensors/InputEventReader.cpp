@@ -26,7 +26,7 @@
 
 #include <cutils/log.h>
 
-#include "InputEventReader.h"
+#include <InputEventReader.h>
 
 /*****************************************************************************/
 

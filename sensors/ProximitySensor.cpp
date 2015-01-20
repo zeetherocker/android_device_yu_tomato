@@ -24,7 +24,7 @@
 
 #include <cutils/log.h>
 
-#include "ProximitySensor.h"
+#include <ProximitySensor.h>
 #include "sensors.h"
 
 #define PROXIMITY_SEN_NAME      "PA12200001_proximity"

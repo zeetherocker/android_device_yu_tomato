@@ -29,7 +29,7 @@
 #include <utils/Log.h>
 #include <CalibrationManager.h>
 
-#include "sensors.h"
+#include <sensors.h>
 #include "AccelSensor.h"
 #include "LightSensor.h"
 #include "ProximitySensor.h"
