@@ -17,6 +17,5 @@ type modem_block_device, dev_type;
 
 # QSEECOM
 type qseecom_device, dev_type;
-type fscklogs, dev_type;
 
 type thermal_device, dev_type;
