@@ -21,6 +21,12 @@ LOCAL_CFLAGS = -Wall -Werror
 #Debug logs are enabled
 #LOCAL_CFLAGS += -DDISABLE_DEBUG_LOG
 
+ifeq ($(call is-platform-sdk-version-at-least,20),true)
+LOCAL_C_INCLUDES += system/media/camera/include
+else
+LOCAL_CFLAGS += -DUSE_KK_CODE
+endif
+
 ifeq ($(TARGET_USE_VENDOR_CAMERA_EXT),true)
 LOCAL_CFLAGS += -DUSE_VENDOR_CAMERA_EXT
 endif
@@ -33,6 +39,7 @@ LOCAL_C_INCLUDES := \
         frameworks/native/include/media/openmax \
         $(call project-path-for,qcom-display)/libgralloc \
         $(call project-path-for,qcom-media)/libstagefrighthw \
+        system/media/camera/include \
         $(LOCAL_PATH)/../../mm-image-codec/qexif \
         $(LOCAL_PATH)/../../mm-image-codec/qomx_core \
         $(LOCAL_PATH)/../util \
