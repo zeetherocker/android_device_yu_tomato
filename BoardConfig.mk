@@ -136,6 +136,11 @@ COMMON_GLOBAL_CFLAGS += -DRIL_SUPPORTS_SEEK
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
 
+# Insecure boot
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/yu/tomato/sepolicy
