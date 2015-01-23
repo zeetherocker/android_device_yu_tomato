@@ -216,7 +216,12 @@ on boot
     mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
     chmod 2770 /dev/socket/qmux_bluetooth
     mkdir /dev/socket/qmux_gps 0770 gps gps
-    chmod 2770 /dev/socket/qmux_gps
+
+    #Create PERFD deamon related dirs
+    mkdir /data/misc/perfd 0770 root system
+    chmod 2770 /data/misc/perfd
+    mkdir /data/system/perfd 0770 root system
+    chmod 2770 /data/system/perfd
 
     setprop wifi.interface wlan0
 
@@ -669,20 +674,8 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service qrngd /system/bin/qrngd -f
-   class main
-   user root
-   group root
-
-service qrngp /system/bin/qrngp -f
-   class main
-   user root
-   group root
-   oneshot
-   disabled
 
 on property:sys.boot_completed=1
-   start qrngp
 
 service qseecomd /system/bin/qseecomd
    class core

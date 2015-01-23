@@ -164,10 +164,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm8916
 
+
 # Media
 PRODUCT_COPY_FILES += \
+frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+
 
 PRODUCT_PACKAGES += \
     libdashplayer \
@@ -188,28 +194,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     power.msm8916
 
-# QC PROPRIETARY
+# QC PROPRIETARY ( proprietary wifi display, if available)
 ifneq ($(QCPATH),)
-# proprietary wifi display, if available
 PRODUCT_BOOT_JARS += WfdCommon
-
-# Connectivity Engine support
-ifeq ($(BOARD_USES_QCNE),true)
-PRODUCT_PACKAGES += \
-    libcnefeatureconfig \
-    services-ext \
-    init.cne.rc
-
-PRODUCT_PROPERTY_OVERRIDES +=
-    persist.cne.feature=4
-
 endif
-endif
-
-# QRNGD
-PRODUCT_PACKAGES += \
-    qrngd \
-    qrngp
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -249,6 +237,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
     wcnss_service
+
+# Development settings
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.debuggable=1 \
+    ro.adb.secure=0
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd.accept:system/etc/hostapd/hostapd.accept \
