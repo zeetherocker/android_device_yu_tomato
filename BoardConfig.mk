@@ -151,9 +151,7 @@ BOARD_SEPOLICY_UNION += \
     device.te \
     app.te \
     cne.te \
-    perfd \
     qmux.te \
-    system_server \
     mpdecision.te \
     thermald.te \
     ueventd.te \
