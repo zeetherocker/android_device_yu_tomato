@@ -1,0 +1,4 @@
+#============= system_server ==============
+type sensor_file, file_type, data_file_type;
+allow system_server sensor_file:chr_file { open read write ioctl };
+allow system_server device:chr_file { open read write ioctl };
