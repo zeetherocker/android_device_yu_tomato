@@ -10,4 +10,3 @@
 /dev/socket/mpctl                      u:object_r:mpdecision_socket:s0
 /sys/module/msm_pm/modes(/.*)?         u:object_r:sysfs_mpdecision:s0
 /data/system/default_values            u:object_r:mpdecision_state:s0
-/dev/yl_alsprox_sensor                 u:object_r:sensor_file:s0
