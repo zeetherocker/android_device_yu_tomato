@@ -18,7 +18,7 @@
 
 LOCAL_PATH := device/yu/tomato
 
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+#TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
@@ -40,12 +40,18 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 boot_cpus=0,4,5,6,7 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 sched_enable_hmp=1 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 boot_cpus=0,4,5,6,7 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci sched_enable_hmp=1 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_RAMDISK_OFFSET := 0x01000000
 TARGET_KERNEL_SOURCE := kernel/yu/msm8916
 TARGET_KERNEL_CONFIG := cyanogenmod_tomato_defconfig
+
+#qcom-hardware
+TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_QCOM_DISPLAY_VARIANT := caf-new
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+TARGET_QCOM_MEDIA_VARIANT := caf-new
 
 # Audio
 AUDIO_FEATURE_DISABLED_DS1_DOLBY_DDP := true
@@ -72,7 +78,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/src
 
 # Crypto
-#TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := true
 
 # Display
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
@@ -106,8 +112,11 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 14103313408 # 14103329792 - 16384
 
 # Qualcomm support
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_NO_RPC := true
+TARGET_USES_QCOM_BSP := true
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
@@ -132,6 +141,24 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 # Insecure boot
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/yu/tomato/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    file.te \
+    device.te \
+    app.te \
+    cne.te \
+    qmux.te \
+    mpdecision.te \
+    thermald.te \
+    ueventd.te \
+    vold.te \
+    file_contexts \
+    genfs_contexts \
+    te_macros
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true

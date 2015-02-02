@@ -77,6 +77,8 @@ ro.use_data_netmgrd=true
 # Time
 persist.timed.enable=true
 
+persist.sys.dalvik.vm.lib=libart.so
+
 # perf
 ro.min_freq_0=400000
 ro.min_freq_4=200000
