@@ -198,7 +198,24 @@ PRODUCT_PACKAGES += \
 # QC PROPRIETARY ( proprietary wifi display, if available)
 ifneq ($(QCPATH),)
 PRODUCT_BOOT_JARS += WfdCommon
+
+# Connectivity Engine support
+ifeq ($(BOARD_USES_QCNE),true)
+PRODUCT_PACKAGES += \
+    libcnefeatureconfig \
+    services-ext \
+    init.cne.rc
+
+PRODUCT_PROPERTY_OVERRIDES +=
+    persist.cne.feature=4
+
 endif
+endif
+
+# QRNGD
+PRODUCT_PACKAGES += \
+    qrngd \
+    qrngp
 
 # Ramdisk
 PRODUCT_PACKAGES += \
