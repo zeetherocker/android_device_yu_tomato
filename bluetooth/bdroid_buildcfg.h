@@ -18,7 +18,7 @@
 #define _BDROID_BUILDCFG_H
 
 #define BTM_DEF_LOCAL_NAME   "YUREKA"
-#define BLUETOOTH_QTI_SW TRUE
+#define BLUETOOTH_QCOM_SW TRUE
 // Disables read remote device feature
 #define BTA_SKIP_BLE_READ_REMOTE_FEAT FALSE
 #define MAX_ACL_CONNECTIONS    7
