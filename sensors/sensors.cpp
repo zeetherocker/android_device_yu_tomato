@@ -29,7 +29,7 @@
 #include <utils/Log.h>
 #include <CalibrationManager.h>
 
-#include "sensors.h"
+#include <sensors.h>
 #include "AccelSensor.h"
 #include "LightSensor.h"
 #include "ProximitySensor.h"
@@ -52,7 +52,7 @@ static struct sensor_t sensor_list[] = {
 		20000,	/* microseconds */
 		0,
 		0,
-		{NULL}
+		NULL
 	},
 
 	/* light sensor name */
@@ -68,7 +68,7 @@ static struct sensor_t sensor_list[] = {
 		20000,
 		0,
 		0,
-		{NULL}
+		NULL
 	},
 
 	/* proximity sensor */
@@ -84,7 +84,7 @@ static struct sensor_t sensor_list[] = {
 		0,
 		0,
 		0,
-		{NULL}
+		NULL
 	},
 
 	/* gyro scope */
@@ -100,7 +100,7 @@ static struct sensor_t sensor_list[] = {
 		1200,
 		0,
 		0,
-		{NULL}
+		NULL
 	}
 };
 
