@@ -103,7 +103,6 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
-
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 20971520
@@ -131,34 +130,12 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
-
+ 
 # RIL
-COMMON_GLOBAL_CFLAGS += -DRIL_SUPPORTS_SEEK
+BOARD_RIL_CLASS := ../../../device/yu/tomato/ril/telephony/java
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
-
-# Insecure boot
-ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
-ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
-
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/yu/tomato/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    file.te \
-    device.te \
-    app.te \
-    cne.te \
-    qmux.te \
-    mpdecision.te \
-    thermald.te \
-    ueventd.te \
-    vold.te \
-    file_contexts \
-    genfs_contexts \
-    te_macros
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true

@@ -233,12 +233,11 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
+    libwpa_client \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf \
     wcnss_service
-
-# Development settings
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.debuggable=1 \
-    ro.adb.secure=0
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd.accept:system/etc/hostapd/hostapd.accept \
