@@ -35,6 +35,7 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := wcnss_yl_client.c
 
 LOCAL_C_INCLUDES += hardware/qcom/wlan/wcnss_service
+LOCAL_C_INCLUDES += hardware/qcom/wlan/qcwcn
 LOCAL_CFLAGS += -Wall
 
 LOCAL_SHARED_LIBRARIES := libc libcutils libutils liblog libyl_params
